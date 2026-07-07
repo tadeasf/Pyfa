@@ -2431,8 +2431,9 @@ class Effect760(BaseEffect):
 
     @staticmethod
     def handler(fit, ship, context, projectionRange, **kwargs):
-        fit.modules.filteredItemBoost(lambda mod: mod.item.requiresSkill('Missile Launcher Operation'),
-                                      'speed', ship.getModifiedItemAttr('shipBonusCF2'), skill='Caldari Frigate', **kwargs)
+        fit.modules.filteredItemBoost(
+            lambda mod: mod.item.group.name in ('Missile Launcher Rocket', 'Missile Launcher Light'),
+            'speed', ship.getModifiedItemAttr('shipBonusCF2'), skill='Caldari Frigate', **kwargs)
 
 
 class Effect763(BaseEffect):
